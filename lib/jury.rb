@@ -15,8 +15,16 @@ class Jury
   	@members.each do |member|
   	  vote = finalists.sample
   	  finalists.index(vote) == 0 ? votes_0 += 1 : votes_1 += 1
-  	  puts "#{member} voted for #{vote}"
+  	  puts "#{member} voted for #{vote}".capitalize
   	end
-  	votes = {finalists[0].to_s => votes_0, finalists[1].to_s => votes_1}
+  	votes = {finalists.first.to_s => votes_0, finalists.last.to_s => votes_1}
+  end
+
+  def report_votes(votes)
+  	votes.each { |k,v| puts "#{k} got #{v} votes".capitalize }
+  end
+
+  def announce_winner(votes)
+  	votes[votes.keys.first] > votes[votes.keys.last] ? votes.keys.first : votes.keys.last
   end
 end	
