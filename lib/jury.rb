@@ -10,6 +10,7 @@ class Jury
   end
 
   def cast_votes(finalists)
+  	@members.each { |member| puts "#{member} voted for <FINALIST NAME>" }
   	votes = {finalist_1: 3, finalist_2: 4}
   end
 end	
