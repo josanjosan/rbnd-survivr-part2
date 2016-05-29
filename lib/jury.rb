@@ -10,7 +10,13 @@ class Jury
   end
 
   def cast_votes(finalists)
-  	@members.each { |member| puts "#{member} voted for <FINALIST NAME>" }
-  	votes = {finalist_1: 3, finalist_2: 4}
+  	votes_0 = 0
+  	votes_1 = 0
+  	@members.each do |member|
+  	  vote = finalists.sample
+  	  finalists.index(vote) == 0 ? votes_0 += 1 : votes_1 += 1
+  	  puts "#{member} voted for #{vote}"
+  	end
+  	votes = {finalists[0].to_s => votes_0, finalists[1].to_s => votes_1}
   end
 end	
