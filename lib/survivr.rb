@@ -30,7 +30,10 @@ def phase_one
 end
 
 def phase_two
-  3.times do
+  3.times do |i|
+  	immune = @borneo.tribes.first.members.sample
+	eliminated = @borneo.tribes.first.tribal_council(immune: immune)
+  	puts "Individual challenge #{i+1}: Contestant #{immune.capitalize} wins immunity, #{eliminated.capitalize} is eliminated"
   end
 end
 
@@ -44,7 +47,7 @@ end
 #=========================================================
 phase_one #8 eliminations
 @merge_tribe = @borneo.merge("Cello") # After 8 eliminations, merge the two tribes together
-# phase_two #3 more eliminations
+phase_two #3 more eliminations
 # @jury = Jury.new
 # phase_three #7 elminiations become jury members
 # finalists = @merge_tribe.members #set finalists

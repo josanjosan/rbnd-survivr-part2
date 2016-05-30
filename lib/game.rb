@@ -19,7 +19,7 @@ class Game
   end
 
   def merge(combined_name)
-  	Tribe.new(members: @tribes.first.members + @tribes.last.members)
+  	Tribe.new(name: "Merged Ones", members: @tribes.first.members + @tribes.last.members)
   end
 
   def individual_immunity_challenge
