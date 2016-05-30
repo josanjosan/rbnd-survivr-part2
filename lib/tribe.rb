@@ -12,8 +12,12 @@ class Tribe
   end
 
   def tribal_council(options = {})
-  	immune = options[:immune]
-    not_immune = @members.delete_if { |contestant| contestant.name == immune.name }
+  	if options[:immune]
+      immune = options[:immune]
+      not_immune = @members.delete_if { |contestant| contestant.name == immune.name } 
+    else
+      not_immune = @members
+    end
     eliminated = not_immune.sample
     @members.delete_if { |contestant| contestant.name == eliminated.name }
     return eliminated

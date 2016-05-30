@@ -24,7 +24,7 @@ def phase_one
   	winning_tribe = @borneo.immunity_challenge
   	winning_index = @borneo.tribes.index(winning_tribe)
   	loosing_tribe = @borneo.tribes[1-winning_index]
-  	eliminated_contestant = loosing_tribe.tribal_council(immune: winning_tribe.members.first)
+  	eliminated_contestant = loosing_tribe.tribal_council
   	puts "Challenge #{i+1}: Tribe #{winning_tribe.capitalize} wins immunity, #{eliminated_contestant.capitalize} from #{loosing_tribe} is eliminated"
   end
 end
