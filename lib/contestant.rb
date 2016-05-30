@@ -8,4 +8,8 @@ class Contestant
   def to_s
   	@name
   end
+
+  def capitalize
+  	to_s.capitalize
+  end
 end
