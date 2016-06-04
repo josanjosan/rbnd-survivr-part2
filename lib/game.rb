@@ -19,10 +19,14 @@ class Game
   end
 
   def merge(combined_name)
-  	Tribe.new(name: "Merged Ones", members: @tribes.first.members + @tribes.last.members)
+  	members_a = @tribes.first.members
+    members_b = @tribes.last.members
+    clear_tribes
+    @tribes.push(Tribe.new(name: combined_name, members: members_a + members_b))
+    return @tribes.first
   end
 
   def individual_immunity_challenge
-  	Contestant.new(name: merge("combined_tribe").members.sample)
+  	immunity_challenge.members.sample
   end
 end

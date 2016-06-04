@@ -14,7 +14,7 @@ class Tribe
   def tribal_council(options = {})
   	if options[:immune]
       immune = options[:immune]
-      not_immune = @members.delete_if { |contestant| contestant.name == immune.name } 
+      not_immune = @members.select { |contestant| contestant.name != immune.name } 
     else
       not_immune = @members
     end

@@ -5,8 +5,8 @@ class Jury
   	@members = []
   end
 
-  def add_member(name)
-  	@members.push(name)
+  def add_member(member)
+  	@members.push(member)
   end
 
   def cast_votes(finalists)
@@ -25,6 +25,8 @@ class Jury
   end
 
   def announce_winner(votes)
-  	votes[votes.keys.first] > votes[votes.keys.last] ? votes.keys.first : votes.keys.last
+  	votes[votes.keys.first] > votes[votes.keys.last] ?  winner = votes.keys.first : winner = votes.keys.last
+    puts "#{winner.capitalize} wins!"
+    return winner
   end
 end	
