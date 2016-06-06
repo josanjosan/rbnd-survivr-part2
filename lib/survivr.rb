@@ -22,30 +22,47 @@ require_relative "../gems/colorizr/lib/colorizr"
 #This is where you will write your code for the three phases
 def phase_one
   8.times do |i|
+    puts [nil,
+      "<< Game begins, tribes #{@coyopa} and #{@hunapu} are formed >>",
+      nil,
+      "Phase One begins!".title,
+      nil] if i == 0
   	winning_tribe = @borneo.immunity_challenge
   	winning_index = @borneo.tribes.index(winning_tribe)
   	loosing_tribe = @borneo.tribes[1-winning_index]
     if loosing_tribe
   	  eliminated_contestant = loosing_tribe.tribal_council
-  	  puts "Challenge #{i+1}: Tribe #{winning_tribe.capitalize} wins immunity, #{eliminated_contestant.capitalize} from #{loosing_tribe} is eliminated"
+  	  puts "Challenge #{i+1}: ".bold + "Tribe #{winning_tribe} " + "wins immunity".green + ", #{eliminated_contestant.capitalize} from #{loosing_tribe} is " + "eliminated".red
     end #Not sure why checking loosing_tribe !nil was necessary but it made TestSurvivr#test_phase_one pass. Before adding if check this test threw NoMethodError fortribal_council in NilClass
+    puts [nil,
+      "Tribes merge!".title,
+      nil] if i == 7
   end
 end
 
 def phase_two
   3.times do |i|
+    puts [nil,
+      "Phase Two begins!".title,
+      nil] if i == 0
   	immune = @borneo.individual_immunity_challenge
 	  eliminated = @borneo.tribes.first.tribal_council(immune: immune)
-  	puts "Individual challenge #{i+1}: Contestant #{immune.capitalize} wins immunity, #{eliminated.capitalize} is eliminated"
+  	puts "Individual challenge #{i+1}: ".bold + "Contestant #{immune.capitalize} " + "wins immunity".green + ", #{eliminated.capitalize} is " + "eliminated".red
   end
 end
 
 def phase_three
   7.times do |i|
+    puts [nil,
+      "Phase Three begins!".title,
+      nil] if i == 0
     immune = @borneo.individual_immunity_challenge
 	  eliminated = @borneo.tribes.first.tribal_council(immune: immune)
 	  @jury.add_member(eliminated)
-  	puts "Final challenge #{i+1}: Contestant #{immune.capitalize} wins immunity, #{eliminated.capitalize} is eliminated and becomes Jury"
+  	puts "Final challenge #{i+1}: ".bold + "Contestant #{immune.capitalize} " + "wins immunity".green + ", #{eliminated.capitalize} " + "out".yellow + " and joins Jury"
+    puts [nil,
+      "Voting phase begins!".title,
+      nil] if i == 6
   end
 end
 

@@ -2,7 +2,7 @@ class Tribe
   attr_reader :name, :members
 
   def initialize (options = {})
-  	@name = options[:name]
+  	@name = options[:name].light_blue
   	@members = options[:members]
   	puts "Tribe #{@name} has been created"
   end
