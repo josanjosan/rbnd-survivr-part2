@@ -19,10 +19,10 @@ class Game
   end
 
   def merge(combined_name)
-  	members_a = @tribes.first.members
-    members_b = @tribes.last.members
+    all_members = []
+    @tribes.each { |tribe| all_members.push(tribe.members)}
     clear_tribes
-    @tribes.push(Tribe.new(name: combined_name, members: members_a + members_b))
+    @tribes.push(Tribe.new(name: combined_name, members: all_members.flatten))
     return @tribes.first
   end
 
