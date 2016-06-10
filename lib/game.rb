@@ -15,7 +15,7 @@ class Game
   end
 
   def clear_tribes
-  	initialize()
+  	@tribes.clear
   end
 
   def merge(combined_name)
