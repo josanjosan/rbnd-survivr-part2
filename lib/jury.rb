@@ -26,7 +26,9 @@ class Jury
 
   def announce_winner(votes)
   	votes[votes.keys.first] > votes[votes.keys.last] ? winner = votes.keys.first : winner = votes.keys.last
-    puts "#{winner.capitalize} wins Suvivr!".rainbow.bold
+    winner_votes = votes.max_by { |k, v| v }
+    winner = winner_votes.first
+    puts "#{winner.name.capitalize} wins Suvivr!".rainbow.bold
     return winner
   end
 end	
