@@ -27,13 +27,9 @@ def phase_one
       nil,
       "Phase One begins!".title,
       nil] if i == 0
-  	winning_tribe = @borneo.immunity_challenge
-  	winning_index = @borneo.tribes.index(winning_tribe)
-  	loosing_tribe = @borneo.tribes[1-winning_index]
-    if loosing_tribe
-  	  eliminated_contestant = loosing_tribe.tribal_council
-  	  puts "Challenge #{i+1}: ".bold + "Tribe #{winning_tribe} " + "wins immunity".green + ", #{eliminated_contestant.capitalize} from #{loosing_tribe} is " + "eliminated".red
-    end #Not sure why checking loosing_tribe !nil was necessary but it made TestSurvivr#test_phase_one pass. Before adding if check this test threw NoMethodError fortribal_council in NilClass
+    loosing_tribe = @borneo.immunity_challenge
+  	eliminated_contestant = loosing_tribe.tribal_council
+  	puts "Challenge #{i+1}: ".bold +  "#{eliminated_contestant.capitalize} from #{loosing_tribe} is " + "eliminated".red
     puts [nil,
       "Tribes merge!".title,
       nil] if i == 7

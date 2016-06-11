@@ -27,6 +27,6 @@ class Game
   end
 
   def individual_immunity_challenge
-  	immunity_challenge.members.sample
+  	@tribes.sample.members.sample
   end
 end
